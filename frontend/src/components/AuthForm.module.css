@@ -16,6 +16,13 @@
   padding: 0.25rem;
 }
 
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
 .actions {
   display: flex;
   gap: 1rem;
