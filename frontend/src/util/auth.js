@@ -27,11 +27,6 @@ export function getAuthToken() {
   return token;
 }
 
-export function tokenLoader() {
-  const token = getAuthToken();
-  return token;
-}
-
 export function checkAuthLoader() {
   const token = getAuthToken();
 

@@ -42,5 +42,9 @@ export async function action({ request }) {
 
   localStorage.setItem("token", token);
 
+  const expiration = new Date();
+  expiration.setHours(expiration.getHours() + 1); // to get 1 hour from now
+  localStorage.setItem("expiration", expiration.toISOString());
+
   return redirect("/");
 }
