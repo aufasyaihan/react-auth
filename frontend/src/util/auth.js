@@ -4,6 +4,5 @@ export function getAuthToken() {
 }
 
 export function isTokenExist() {
-  const isExist = localStorage.getItem("token") !== null;
-  return isExist;
+  return getAuthToken;
 }
