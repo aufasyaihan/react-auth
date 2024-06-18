@@ -1,5 +1,11 @@
 // import { useState } from 'react';
-import { Form, Link, useActionData, useSearchParams } from "react-router-dom";
+import {
+  Form,
+  Link,
+  useActionData,
+  useNavigation,
+  useSearchParams,
+} from "react-router-dom";
 
 import classes from "./AuthForm.module.css";
 
@@ -9,9 +15,12 @@ function AuthForm() {
   // function switchAuthHandler() {
   //   setIsLogin((isCurrentlyLogin) => !isCurrentlyLogin);
   // }
+  const data = useActionData();
+  const navigation = useNavigation();
+
   const [searchParams] = useSearchParams();
   const isLogin = searchParams.get("mode") === "login";
-  const data = useActionData();
+  const isSubmitting = navigation.state === "submitting";
 
   return (
     <>
@@ -39,7 +48,7 @@ function AuthForm() {
           <Link to={`?mode=${isLogin ? "signup" : "login"}`}>
             {isLogin ? "Create new user" : "Login"}
           </Link>
-          <button>{isLogin ? "Login" : "Sign Up"}</button>
+          <button>{isLogin ? "Login" : isSubmitting ? "Submitting..." : "Sign Up"}</button>
         </div>
       </Form>
     </>
