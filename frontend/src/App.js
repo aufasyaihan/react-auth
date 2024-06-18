@@ -16,6 +16,7 @@ import NewEventPage from "./pages/NewEvent";
 import RootLayout from "./pages/Root";
 import { action as manipulateEventAction } from "./components/EventForm";
 import NewsletterPage, { action as newsletterAction } from "./pages/Newsletter";
+import { action as logoutAction } from "./pages/Logout";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         element: <AuthenticationPage />,
         errorElement: <ErrorPage />,
         action: authAction,
+      },
+      {
+        path: "/logout",
+        action: logoutAction,
       },
 
       {
